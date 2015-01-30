@@ -1,0 +1,26 @@
+package db_engine;
+
+option cc_generic_services = true;    
+
+enum DBCode {
+    SUC = 0;
+    ERR = 1;
+    // for get api
+    NOFOUND = 3;
+}
+
+message DBRequest {
+    optional string db_key = 1 [default = ""];
+    optional string db_value = 2 [default = ""];
+}
+
+message DBResponse {
+    optional DBCode code = 1 [default = SUC];
+    optional string db_res = 2 [default = "NULL"];
+}
+
+service EngineService {
+    rpc Put(DBRequest) returns (DBResponse);
+    rpc Get(DBRequest) returns (DBResponse);
+    rpc Delete(DBRequest) returns (DBResponse);
+}
