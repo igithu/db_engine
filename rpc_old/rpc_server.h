@@ -25,7 +25,7 @@
 #include <google/protobuf/service.h>
 
 #include "disallow_copy_and_assign.h"
-#include "libev_connector.h"
+#include "connection_manager.h"
 #include "rpc_msg.pb.h"
 #include "pthread_mutex.h"
 #include "io_thread.h"
@@ -62,11 +62,9 @@ class RpcServer {
 
         bool Start(int32_t thread_num = 20, const char* addr = "", const char* port = "");
 
-        bool Wait();
-
         bool RpcCall(int32_t event_fd);
 
-        LibevConnector* GetLibevConnector();
+        ConnectionManager* GetConnectionManager();
 
         static void* RpcProcessor(void *arg);
 
@@ -82,7 +80,11 @@ class RpcServer {
 
         bool ErrorSendMsg(int32_t event_fd, const string& error_msg);
 
-        //DISALLOW_COPY_AND_ASSIGN(RpcServer);
+        DISALLOW_COPY_AND_ASSIGN(RpcServer);
+
+    public:
+        // public because used by iothread
+        ConnectionManager* connection_manager_ptr_;
 
 
     private:
@@ -90,8 +92,6 @@ class RpcServer {
         PUBLIC_UTIL::Mutex hashmap_mutex_;
 
         HashMap method_hashmap_;
-
-        LibevConnector* libev_connector_ptr_;
 
         IOThread* io_thread_ptr_;
 

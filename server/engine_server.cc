@@ -86,6 +86,7 @@ int main(int argc, char* argv[]) {
     DB_LOG(INFO, "Start the rpc sevice....");
 
     rpc_server.Start(thread_num, addr, port);
+    rpc_server.Wait();
 
     return 0;
 }

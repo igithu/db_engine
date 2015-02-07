@@ -32,6 +32,9 @@
 #include "connection_manager.h"
 #include "../log/db_log.h"
 
+// define error output
+#define LOGERROR(format, args...) fprintf(stderr, format, ##args)
+
 namespace db_engine {
 
 using std::string;
@@ -117,6 +120,7 @@ int32_t ConnectionManager::TcpListen(
     } while ((res = res->ai_next) != NULL);
 
     if (res == NULL) {
+        // LOGERROR("tcp_listen error for %s, %s\n", host, serv);
         return -1;
     }
 
@@ -334,6 +338,7 @@ int32_t ConnectionManager::EpollSendMsg(int32_t fd, string& send_msg_str) {
     //ev_.events = EPOLLIN | EPOLLOUT;
 
     //if (epoll_ctl(ep_create_fd_, EPOLL_CTL_DEL, fd, &ev_) == -1) {
+    //    LOGERROR("epoll_ctl error\n");
     //    return -1;
     //}
 
@@ -347,7 +352,7 @@ int32_t ConnectionManager::EpollClose(int32_t fd) {
     ev_.events = EPOLLIN | EPOLLOUT;
 
     if (epoll_ctl(ep_create_fd_, EPOLL_CTL_DEL, fd, &ev_) == -1) {
-        DB_LOG(ERROR, "epoll_ctl error");
+        LOGERROR("epoll_ctl error\n");
         return -1;
     }
 

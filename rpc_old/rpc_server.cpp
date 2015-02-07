@@ -22,9 +22,8 @@
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/stubs/common.h>
 
-#include "socket_util.h"
+#include "../include/inter_include.h"
 #include "rpc_util.h"
-#include "../log/db_log.h"
 
 namespace db_engine {
 
@@ -33,7 +32,7 @@ namespace db_engine {
 #define MAXEVENTS 100
 
 RpcServer::RpcServer() :
-    libev_connector_ptr_(NULL),
+    connection_manager_ptr_(NULL),
     io_thread_ptr_(NULL),
     worker_threads_ptr_(NULL) {
     Initialize();
@@ -56,8 +55,8 @@ RpcServer::~RpcServer() {
     if (NULL != io_thread_ptr_) {
         delete io_thread_ptr_;
     }
-    if (NULL != libev_connector_ptr_) {
-        delete libev_connector_ptr_;
+    if (NULL != connection_manager_ptr_) {
+        delete connection_manager_ptr_;
     }
 }
 
@@ -70,7 +69,7 @@ bool RpcServer::Initialize() {
     return true;
 }
 
-// Note: not thread safe in old c++
+// Note: not thread safe
 RpcServer& RpcServer::GetInstance() {
     static RpcServer server_instance;
     return server_instance;
@@ -105,31 +104,16 @@ bool RpcServer::Start(int32_t thread_num, const char* addr, const char* port) {
     DB_LOG(INFO, "rpc server start info, thread pool num: %d, addr: %s, port: %s", 
             thread_num, addr, port);
 
-    libev_connector_ptr_ = new LibevConnector();
+    connection_manager_ptr_ = new ConnectionManager();
     io_thread_ptr_ = new IOThread(addr, port);
     worker_threads_ptr_ = new ThreadPool(thread_num);
 
     io_thread_ptr_->Start();
     worker_threads_ptr_->Start();
-}
 
-bool RpcServer::Wait() {
+    io_thread_ptr_->Wait();
+    worker_threads_ptr_->Wait();
 
-
-    if (false == io_thread_ptr_->IsAlive()) {
-        //worker_threads_ptr_->Destroy();
-        return false;
-    }
-
-    if (NULL != io_thread_ptr_) {
-        io_thread_ptr_->Wait();
-    }
-
-    if (NULL != worker_threads_ptr_) {
-        worker_threads_ptr_->Wait();
-    }
-
-    return true;
 }
 
 bool RpcServer::RpcCall(int32_t event_fd) {
@@ -143,8 +127,8 @@ bool RpcServer::RpcCall(int32_t event_fd) {
     return true;
 }
 
-LibevConnector* RpcServer::GetLibevConnector() {
-    return libev_connector_ptr_;
+ConnectionManager* RpcServer::GetConnectionManager() {
+    return connection_manager_ptr_;
 }
 
 void* RpcServer::RpcProcessor(void *arg) {
@@ -198,13 +182,13 @@ void* RpcServer::RpcProcessor(void *arg) {
 
 bool RpcServer::GetMethodRequest(int32_t event_fd, RpcMessage& recv_rpc_msg) {
     string msg_str;
-    if (RecvMsg(event_fd, msg_str) < 0) {
-        DB_LOG(ERROR, "rpc server recv msg failed!");
+    if (connection_manager_ptr_->EpollRecvMsg(event_fd, msg_str) < 0) {
+        DB_LOG(ERROR, "connection_manager recv msg failed!");
         return false;
     }
 
     if (0 == msg_str.size()) {
-        close(event_fd);
+        connection_manager_ptr_->EpollClose(event_fd);
         return false;
     }
 
@@ -233,8 +217,8 @@ bool RpcServer::SendFormatStringMsg(int32_t event_fd, Message* response) {
         DB_LOG(ERROR, "send_str SerializeToString failed!");
         return false;
     }
-    SendMsg(event_fd, send_str);
-    close(event_fd);
+    connection_manager_ptr_->EpollSendMsg(event_fd, send_str);
+    connection_manager_ptr_->EpollClose(event_fd);
     //fsync(event_fd);
     //close(event_fd);
     //fflush(event_fd);
@@ -254,8 +238,7 @@ bool RpcServer::ErrorSendMsg(int32_t event_fd, const string& error_msg) {
         DB_LOG(ERROR, "error send error!");
         return false;
     }
-    SendMsg(event_fd, err_msg_str);
-    close(event_fd);
+    connection_manager_ptr_->EpollSendMsg(event_fd, err_msg_str);
     return true;
 }
 
