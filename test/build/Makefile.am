@@ -15,7 +15,7 @@ test_conf_SOURCES = ../test_conf.cpp \
 #CXXFLAGS = -std=c++11 -Wall -g -fPIC
 test_conflib=
 test_conf_CPPFLAGS = -I../../../third-64/iniparser/include/ \
-					 -I../../../util/tools/ \
+					 -I../../../pub_util/tools/ \
 					 -I../../../third-64/glog/include/ \
 					 -I../../../third-64/boost/include/
 test_conf_LDFLAGS =-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H -fpermissive 
