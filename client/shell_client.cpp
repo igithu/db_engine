@@ -71,6 +71,7 @@ void ShellClient::Run() {
             continue;
         }
 
+        // find the cmd to execute
         HashMap::iterator do_cmd_iter = do_cmd_map_.find(do_cmd_str.c_str()); 
         if (do_cmd_iter == do_cmd_map_.end()) {
             fprintf(stderr, "Cann't find command %s, unknow command!\n", do_cmd_str.c_str());
@@ -113,6 +114,7 @@ bool ShellClient::DoCmdSet(Params& params) {
         DB_LOG(WARNING, "DoCmdSet params is wrong number!");
         return false;
     }
+    // call rpc to set data
     return engine_client_.Put(params_vec[0].c_str(), params_vec[1].c_str());
 }
 
@@ -123,6 +125,7 @@ bool ShellClient::DoCmdGet(Params& params) {
         return false;
     }
     string response_str;
+    // call rpc to get data
     if (!engine_client_.Get(params_vec[0].c_str(), response_str)) {
         return false;
     }
@@ -140,6 +143,7 @@ bool ShellClient::DoCmdDelete(Params& params) {
         DB_LOG(WARNING, "DoCmdDelete params is wrong number!");
         return false;
     }
+    // call rpc to del data
     return engine_client_.Delete(params_vec[0].c_str());
 }
 

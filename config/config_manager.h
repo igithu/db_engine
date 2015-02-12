@@ -50,6 +50,7 @@ class ConfigManager {
 
         static ConfigManager& GetInstance();
 
+        // the api to get data
         int32_t GetSecKeysNum(const std::string& sec_key);
 
         int32_t IniGetInt(const std::string& sec_key);

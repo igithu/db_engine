@@ -65,6 +65,7 @@ int main(int argc, char* argv[]) {
          Daemonize();
     }
 
+    // read config data from ini file
     int32_t thread_num = DB_SYS_CONF.IniGetInt("thread:num");
     const char* addr = DB_SYS_CONF.IniGetString("host:addr");
     const char* port = DB_SYS_CONF.IniGetString("host:port");
