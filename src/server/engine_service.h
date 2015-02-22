@@ -21,8 +21,8 @@
 #define  __ENGINE_SERVICE_H_
 
 
-#include "../proto/db_engine.pb.h"
-#include "../engine_db/common_db.h"
+#include "proto/db_engine.pb.h"
+#include "engine_db/common_db.h"
 
 namespace db_engine {
 

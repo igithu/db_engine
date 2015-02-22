@@ -18,8 +18,8 @@
 
 #include <iostream>
 
-#include "../log/db_log.h"
-#include "../../pub_util/tools/tools.h"
+#include "log/db_log.h"
+#include "tools/tools.h"
 
 namespace db_engine {
 

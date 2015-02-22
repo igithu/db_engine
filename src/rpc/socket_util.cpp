@@ -30,7 +30,7 @@
 #include <netinet/tcp.h> 
 #include <netdb.h>
 
-#include "../log/db_log.h"
+#include "log/db_log.h"
 
 namespace db_engine {
 

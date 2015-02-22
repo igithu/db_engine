@@ -20,7 +20,7 @@
 #include <unistd.h>
 
 #include "iniparser.h"
-#include "../log/db_log.h"
+#include "log/db_log.h"
 
 using std::string;
 

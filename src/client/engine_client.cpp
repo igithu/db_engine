@@ -16,8 +16,7 @@
 
 #include "engine_client.h"
 
-#include "../proto/db_engine.pb.h"
-#include "../include/inter_include.h"
+#include "include/inter_include.h"
 
 namespace db_engine {
 

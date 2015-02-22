@@ -20,8 +20,8 @@
 #ifndef  __ENGINE_CLIENT_H_
 #define  __ENGINE_CLIENT_H_
 
-#include "../proto/db_engine.pb.h"
-#include "../rpc/rpc_channel.h"
+#include "proto/db_engine.pb.h"
+#include "rpc/rpc_channel.h"
 
 namespace db_engine {
 

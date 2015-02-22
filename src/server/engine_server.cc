@@ -19,9 +19,9 @@
 #include <fcntl.h>
 
 #include "engine_service.h"
-#include "../rpc/rpc_server.h"
-#include "../include/inter_include.h"
-#include "../include/ext_include.h"
+#include "rpc/rpc_server.h"
+#include "include/inter_include.h"
+#include "include/ext_include.h"
 
 using namespace db_engine;
 

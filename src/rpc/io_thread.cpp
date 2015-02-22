@@ -20,7 +20,7 @@
 #include <sys/socket.h>
 
 #include "rpc_server.h"
-#include "../log/db_log.h"
+#include "log/db_log.h"
 
 namespace db_engine {
 

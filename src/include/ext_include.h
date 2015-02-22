@@ -7,9 +7,9 @@
  
  
 /**
- * @file inter_include.h
+ * @file ext_include.h
  * @author aishuyu(asy5178@163.com)
- * @date 2015/01/09 16:37:05
+ * @date 2015/01/09 16:36:04
  * @brief 
  *  
  **/
@@ -17,20 +17,19 @@
 
 
 
-#ifndef  __INTER_INCLUDE_H_
-#define  __INTER_INCLUDE_H_
+#ifndef  __EXT_INCLUDE_H_
+#define  __EXT_INCLUDE_H_
 
 
 
-#include "../config/config_manager.h"
-#include "../log/db_log.h"
-
-
-
+#include "tools/tools.h"
 
 
 
 
-#endif  //__INTER_INCLUDE_H_
+
+
+
+#endif  //__EXT_INCLUDE_H_
 
 /* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
