@@ -27,8 +27,13 @@ EngineClient::EngineClient():
 }
 
 EngineClient::~EngineClient() {
-    delete serveice_stub_ptr_;
-    delete rpc_channel_ptr_; 
+    if (NULL == serveice_stub_ptr_) {
+        delete serveice_stub_ptr_;
+    }
+    
+    if (NULL == rpc_channel_ptr_) {
+        delete rpc_channel_ptr_; 
+    }
 }
 
 bool EngineClient::ClientInit() {
