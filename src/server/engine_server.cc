@@ -19,9 +19,9 @@
 #include <fcntl.h>
 
 #include "engine_service.h"
+#include "tools.h"
 #include "rpc/rpc_server.h"
 #include "include/inter_include.h"
-#include "include/ext_include.h"
 
 using namespace db_engine;
 
@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
 
     // read config data from ini file
     int32_t thread_num = DB_SYS_CONF.IniGetInt("thread:num");
-    const char* addr = DB_SYS_CONF.IniGetString("host:addr");
+    const char* addr = DB_SYS_CONF.IniGetLocalIPAddr();
     const char* port = DB_SYS_CONF.IniGetString("host:port");
     const char* log_dir = DB_SYS_CONF.IniGetString("log:dir");
 

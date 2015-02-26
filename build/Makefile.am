@@ -6,7 +6,8 @@ ROOTDIR=${top_srcdir}/../src
 THIRDDIR=../../third-64
 PUBDIR=../../pub_util
 
-UTIL_LIB=${PUBDIR}/tools/tools.h ${PUBDIR}/tools/tools.cpp
+UTIL_LIB=${PUBDIR}/tools.h ${PUBDIR}/tools.cpp
+
 INCLUDES=-I${ROOTDIR} -I${PUBDIR}
 
 COMM_LIB=${ROOTDIR}/config/config_manager.h \
@@ -20,7 +21,6 @@ COMM_LIB=${ROOTDIR}/config/config_manager.h \
 		 ${ROOTDIR}/proto/db_engine.pb.h \
 		 ${ROOTDIR}/proto/db_engine.pb.cc \
 		 ${ROOTDIR}/include/inter_include.h \
-		 ${ROOTDIR}/include/ext_include.h \
 		 ${ROOTDIR}/log/db_log.h \
 		 ${ROOTDIR}/log/db_log.cpp 
 
@@ -28,8 +28,7 @@ COMMON_CF =-I${THIRDDIR}/protobuf/include/ \
 		   -I${THIRDDIR}/glog/include/ \
 		   -I${THIRDDIR}/boost/include/ \
 		   -I${THIRDDIR}/iniparser/include/ \
-		   -I${THIRDDIR}/libev/include/ \
-		   -I${PUBDIR}/tools/include/
+		   -I${THIRDDIR}/libev/include/
 
 COMMON_LD = -lpthread -lz -ldl -lrt \
 		   ${THIRDDIR}/protobuf/lib/*.a \
@@ -88,7 +87,6 @@ engine_server_SOURCES = \
 			  $(COMM_LIB) \
 			  $(UTIL_LIB)
 engine_server_CPPFLAGS = $(COMMON_CF) \
-						 -I${THIRDDIR}/leveldb/include/ \
-  						 -I${PUBDIR}/thread/include/
+						 -I${THIRDDIR}/leveldb/include/
 engine_server_LDFLAGS =-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H -fpermissive 
 engine_server_LDADD = $(COMMON_LD)  ${THIRDDIR}/leveldb/lib/*.a 

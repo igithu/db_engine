@@ -41,6 +41,7 @@
 
 
 #define DB_SYS_CONF db_engine::ConfigManager::GetInstance()
+#define MAX_HOST_LEN 128
 
 namespace db_engine {
 
@@ -61,6 +62,10 @@ class ConfigManager {
 
         bool IniGetBool(const std::string& sec_key);
 
+        const char *IniGetLocalIPAddr();
+
+        const char *IniGetLocalHostName();
+
     private:
         ConfigManager();
 
@@ -70,6 +75,10 @@ class ConfigManager {
 
     private:
         dictionary* dict_ini_;
+
+        char localhost_name_[MAX_HOST_LEN];
+
+        char localip_addr_[MAX_HOST_LEN];
 
         static PUBLIC_UTIL::ATOMIC_BOOL is_init_;
 
