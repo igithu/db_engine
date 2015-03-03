@@ -2,6 +2,10 @@
 
 该项目主要提供对levedb等底层数据存储的网络包装
 
+编译说明
+
+        需要安装automake，并下载目录文件third-64,pub_util目录并放在db_engine目录平行，然后在db_engine下的build目录下 执行build.sh脚本
+
 主要模块如下
 
 1.rpc
