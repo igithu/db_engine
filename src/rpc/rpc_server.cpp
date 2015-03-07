@@ -118,7 +118,6 @@ bool RpcServer::Start(int32_t thread_num, const char* addr, const char* port) {
 
 bool RpcServer::Wait() {
 
-
     if (false == io_thread_ptr_->IsAlive()) {
         //worker_threads_ptr_->Destroy();
         return false;
@@ -180,8 +179,9 @@ void* RpcServer::RpcProcessor(void *arg) {
     }
     RpcMethod* rpc_method = method_iter->second;
     Message* request = rpc_method->request->New();
-    if (!request->ParseFromString(recv_rpc_msg.body_msg())) {
-        DB_LOG(ERROR, "parse body msg error!");
+    if ("0" != recv_rpc_msg.body_msg() &&
+         !request->ParseFromString(recv_rpc_msg.body_msg())) {
+        DB_LOG(ERROR, "Parse body msg error!");
         rpc_serv_ptr->ErrorSendMsg(event_fd, "parse body msg error!");
         delete request;
         return NULL;

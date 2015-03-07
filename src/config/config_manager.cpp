@@ -59,6 +59,9 @@ bool ConfigManager::ConfigInit() {
     struct ifaddrs *ifaddr = NULL;
     if (getifaddrs(&ifaddr) == -1) {
         DB_LOG(ERROR, "Call getifaddrs error");
+        if (NULL != ifaddr) {
+            freeifaddrs(ifaddr);
+        }
         return false;
     }
 
@@ -71,6 +74,9 @@ bool ConfigManager::ConfigInit() {
                     localip_addr_, MAX_HOST_LEN, NULL, 0, NI_NUMERICHOST);
             if (ret_code != 0) {
                 DB_LOG(ERROR, "Call getnameinfo failed!");
+                if (NULL != ifaddr) {
+                    freeifaddrs(ifaddr);
+                }
                 return false;
             }
             if (strcmp(localip_addr_, "127.0.0.1") == 0) {

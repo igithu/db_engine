@@ -62,8 +62,7 @@ int32_t Socket(int32_t family, int32_t type, int32_t protocol) {
 }
 
 int32_t TcpListen(const char *host, const char *port, int32_t family) {
-    int32_t listenfd;
-    struct addrinfo hints, *res, *ressave;
+    struct addrinfo hints, *res = NULL, *ressave = NULL;
 
     bzero(&hints, sizeof(struct addrinfo));
     hints.ai_flags = AI_PASSIVE;
@@ -77,6 +76,7 @@ int32_t TcpListen(const char *host, const char *port, int32_t family) {
 
     ressave = res;
     const int on = 1;
+    int32_t listenfd;
     do {
         if (NULL == res) {
             return -1;
@@ -88,7 +88,7 @@ int32_t TcpListen(const char *host, const char *port, int32_t family) {
         
         if (setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on)) < 0) {
             DB_LOG(ERROR, "setsockopt error listenfd %d", listenfd);
-            return -1;
+            continue;
         }
 
         SetNonBlock(listenfd);
@@ -104,6 +104,7 @@ int32_t TcpListen(const char *host, const char *port, int32_t family) {
 
     if (listen(listenfd, 20/*LISTENQ*/) < 0) {
         DB_LOG(ERROR, "listen error listenfd is %d\n", listenfd);
+        freeaddrinfo(ressave);
         return -1;
     }
 
@@ -118,8 +119,7 @@ int32_t TcpListen(const char *host, const char *port, int32_t family) {
 }
 
 int32_t TcpConnect(const char *host, const char *port, int32_t family) {
-    int32_t  sockfd;
-    struct addrinfo hints, *res, *ressave;
+    struct addrinfo hints, *res = NULL, *ressave = NULL;
        
     bzero(&hints, sizeof(struct addrinfo));
     hints.ai_family = family;
@@ -131,6 +131,7 @@ int32_t TcpConnect(const char *host, const char *port, int32_t family) {
     }
     
     ressave = res;
+    int32_t  sockfd;
     do {
         sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
         if (sockfd < 0) {
@@ -145,6 +146,7 @@ int32_t TcpConnect(const char *host, const char *port, int32_t family) {
     
     if (res == NULL) {    /* errno set from final connect() */
         DB_LOG(ERROR, "tcp_connect error!");
+        freeaddrinfo(ressave);
         return -1;
     }
     freeaddrinfo(ressave);

@@ -96,6 +96,11 @@ bool FormatSendMsg(
         DB_LOG(ERROR, "request SerializeToString has failed!");
         return false;
     }
+
+    if (0 == request_str.size()) {
+        request_str = "0";
+    }
+
     RpcMessage rpc_msg;
     rpc_msg.set_head_code(hash_code);
     rpc_msg.set_body_msg(request_str);
