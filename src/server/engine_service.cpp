@@ -19,8 +19,8 @@
 #include <stdio.h>
 #include <string>
 
-#include "../engine_db/level_db.h"
-#include "../include/inter_include.h"
+#include "engine_db/level_db.h"
+#include "common/common.h"
 
 namespace db_engine {
 

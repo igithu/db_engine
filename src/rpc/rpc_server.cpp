@@ -24,7 +24,7 @@
 
 #include "socket_util.h"
 #include "rpc_util.h"
-#include "log/db_log.h"
+#include "common/db_log.h"
 
 namespace db_engine {
 

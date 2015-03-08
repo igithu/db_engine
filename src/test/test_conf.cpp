@@ -16,7 +16,7 @@
 
 #include <string>
 
-#include "../config/config_manager.h"
+#include "common/config_manager.h"
 
 using namespace db_engine;
 
@@ -27,14 +27,6 @@ int main() {
     // const char *addr = ConfigManager::GetInstance().IniGetString("host:addr");
     //std::string addr = DB_SYS_CONF.IniGetString("host:addr");
     //printf("addr : %s\n", addr);
-
-    int x = 10;
-    x --;
-    printf("%d\n", x);
-
-    if (x --> 0) {
-        printf("Test\n");
-    }
 
      
     return 0;

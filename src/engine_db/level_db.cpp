@@ -20,8 +20,8 @@
 #include <stdlib.h>
 #include <leveldb/c.h>
 
-#include "tools.h"
-#include "include/inter_include.h"
+#include "common/tools.h"
+#include "common/common.h"
 
 namespace db_engine {
 
@@ -34,7 +34,7 @@ LeveDB::~LeveDB() {
 
 bool LeveDB::LeveDBInit(const char* db_path) {
     // create the storage dir
-    if (!PUBLIC_UTIL::CreateDir(db_path)) {
+    if (!CreateDir(db_path)) {
         DB_LOG(ERROR, "create the dir %s failed!", db_path);
         return false;
     }

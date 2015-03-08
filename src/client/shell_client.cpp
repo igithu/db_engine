@@ -18,8 +18,8 @@
 
 #include <iostream>
 
-#include "log/db_log.h"
-#include "tools.h"
+#include "common/db_log.h"
+#include "common/tools.h"
 
 namespace db_engine {
 
@@ -91,7 +91,7 @@ bool ShellClient::ParseCmd(string& cmd_str, string& do_cmd_str, Params& params) 
 
     vector<string> splited_vec;
     //cmd_str[cmd_str.size() - 1] = '\0';
-    PUBLIC_UTIL::Split(cmd_str, " ",  splited_vec);
+    Split(cmd_str, " ",  splited_vec);
     if (splited_vec.size() == 0) {
         return false;
     }
