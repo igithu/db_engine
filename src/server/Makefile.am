@@ -26,9 +26,9 @@ LDADD=$(top_builddir)/src/rpc/librpc.a \
 	  ${third_dir}/leveldb/lib/*.a
 
 
-SERVER_SRC= ${server_rootdir}/engine_server.cc \
-		    ${server_rootdir}/engine_service.h \
-		    ${server_rootdir}/engine_service.cpp 
+SERVER_SRC= ${server_rootdir}/db_server.cc \
+		    ${server_rootdir}/db_service.h \
+		    ${server_rootdir}/db_service.cpp 
 
 bin_PROGRAMS = db_server
 

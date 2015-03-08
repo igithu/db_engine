@@ -8,7 +8,8 @@ AC_INIT([db_engine], [0.0.2], [asy5178@163.com])
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AM_INIT_AUTOMAKE
-AC_PROG_RANLIB
+#AC_PROG_RANLIB
+AC_PROG_LIBTOOL
 
 AC_PROG_CXX
 AC_PROG_CC
@@ -17,10 +18,6 @@ AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
 # Checks for libraries.
-# FIXME: Replace `main' with a function in `-ldl':
-AC_CHECK_LIB([dl], [main])
-# FIXME: Replace `main' with a function in `-lpthread':
-AC_CHECK_LIB([pthread], [main])
 # FIXME: Replace `main' with a function in `-lrt':
 AC_CHECK_LIB([rt], [main])
 # FIXME: Replace `main' with a function in `-lz':
@@ -47,8 +44,8 @@ AC_CONFIG_FILES([Makefile
                  src/common/Makefile
                  src/engine_db/Makefile
                  src/proto/Makefile
+                 src/py_client/Makefile
                  src/rpc/Makefile
                  src/server/Makefile
                  src/test/Makefile])
-AC_CONFIG_SUBDIRS([share])
 AC_OUTPUT
