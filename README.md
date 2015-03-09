@@ -6,7 +6,7 @@
 
         需要安装automake，并下载目录文件third-64,pub_util目录并放在db_engine目录平行，然后在db_engine下的根目录下 执行build.sh脚本
 
-主要模块如下
+主要代码如下
 
 1.rpc
 
@@ -49,7 +49,7 @@
     
     
     
-5.config
+5.common/config
 
     主要负责对配置的文件的读取解析，配置文件中可以指定IP，端口，RPC Server线程池的个数，日志存储目录，数据存储目录
     
@@ -58,10 +58,8 @@
     b.ConfigLoader: 负责动态配置的加载服务，现阶段还未实现
     
 
-6.log
+6.common/log
 
     主要实现系统需要的log接口，这里暂时封装glog，可以根据自己的需要改log为其他接口
 
-7.build
 
-    主要编译工具都放在这个目录下，automake等工具搭建好后，可以直接运行build.sh 进行编译
