@@ -4,7 +4,7 @@
 
 编译说明
 
-        需要安装automake，并下载目录文件third-64,pub_util目录并放在db_engine目录平行，然后在db_engine下的build目录下 执行build.sh脚本
+        需要安装automake，并下载目录文件third-64,pub_util目录并放在db_engine目录平行，然后在db_engine下的根目录下 执行build.sh脚本
 
 主要模块如下
 
