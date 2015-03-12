@@ -90,7 +90,7 @@ bool ConfigManager::ConfigInit() {
     }
 
     gethostname(localhost_name_, MAX_HOST_LEN);
-    
+
     if (NULL != ifaddr) {
         freeifaddrs(ifaddr);
     }

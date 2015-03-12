@@ -98,8 +98,12 @@ then
     exit -1
 fi
 
+
+make distclean && ./bootstrap.sh clean
+
+echo ""
+echo "*****************************************"
 echo "build the db engine successfully!!"
-
-make distclean && ./bootstrap.sh clean && rm COPYING
-
+echo "*****************************************"
+echo ""
 

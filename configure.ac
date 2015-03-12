@@ -44,7 +44,6 @@ AC_CONFIG_FILES([Makefile
                  src/common/Makefile
                  src/engine_db/Makefile
                  src/proto/Makefile
-                 src/py_client/Makefile
                  src/rpc/Makefile
                  src/server/Makefile
                  src/test/Makefile])

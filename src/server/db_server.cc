@@ -60,7 +60,6 @@ int main(int argc, char* argv[]) {
 
     InitSignal();
 
-
     if (true) {
          Daemonize();
     }
