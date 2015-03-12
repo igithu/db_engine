@@ -20,7 +20,7 @@
     
     d.RpcServer：rpc Server主干实现，启动IOThread， ThreadPool，接收请求后 ，find到相应的service，调用相应的逻辑
     
-    e.LibevConnector：对libev的包装，其他iothread可以对其进行调用
+    e.LibevConnector：对libev的包装，iothread实现对其进行调用
   
 
  
