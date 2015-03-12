@@ -14,11 +14,13 @@
   
     a.Protobuf: protobuf提供了RPC的框架，在框架中，可以定义RPC实现的逻辑，定义RPC C/S服务协议
     
-    b.IOthread: 使用epoll实现基本的IO复用功能，用来接收远程RPC client请求，
+    b.IOthread: 使用epoll实现基本的IO复用功能（现在使用libev代替），用来接收远程RPC client请求，
   
     c.ThreadPool：基于Linux pthread库实现的线程池的功能，接收来自IOThread的请求后，将请求放在请求队列中，然后线程池会选取一个线程会fetch出请求，最后执行按照指定函数逻辑对该请求进行服务相应
     
     d.RpcServer：rpc Server主干实现，启动IOThread， ThreadPool，接收请求后 ，find到相应的service，调用相应的逻辑
+    
+    e.LibevConnector：对libev的包装，其他iothread可以对其进行调用
   
 
  
