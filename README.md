@@ -12,7 +12,7 @@
 
     主要实现RPC功能框架，为client/server提供RPC连接服务 
   
-    a.Protobuf: protobuf提供了RPC的框架，基于protobuf的RPC框架等，定义RPC实现的逻辑，定义RPC C/S服务协议
+    a.Protobuf: protobuf提供了RPC的框架，在框架中，可以定义RPC实现的逻辑，定义RPC C/S服务协议
     
     b.IOthread: 使用epoll实现基本的IO复用功能，用来接收远程RPC client请求，
   
