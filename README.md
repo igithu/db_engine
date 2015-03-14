@@ -18,9 +18,9 @@
   
     c.ThreadPool：基于Linux pthread库实现的线程池的功能，接收来自IOThread的请求后，将请求放在请求队列中，然后线程池会选取一个线程会fetch出请求，最后执行按照指定函数逻辑对该请求进行服务相应
     
-    d.RpcServer：rpc Server主干实现，启动IOThread， ThreadPool，接收请求后 ，find到相应的service，调用相应的逻辑
+    d.RpcServer：rpc Server主干实现，启动IOThread， ThreadPool，接收请求后 ，find到相应的service，调用相应的函数逻辑
     
-    e.LibevConnector：对libev的包装，iothread实现对其进行调用
+    e.LibevConnector：对libev的包装，iothread在获取请求过程中需要对其进行调用
   
 
  
