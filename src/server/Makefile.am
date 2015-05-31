@@ -1,6 +1,8 @@
+AUTOMAKE_OPTIONS = foreign subdir-objects
+
 top_dir = ${top_srcdir}/..
 server_rootdir = ${top_srcdir}/src/server
-third_dir = ${top_dir}/third-64
+third_dir = ${top_dir}/third-32
 pub_dir = ${top_dir}/pub_util
 
 AM_CPPFLAGS = -I${top_srcdir}/src \
@@ -12,7 +14,7 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 		      -I${third_dir}/leveldb/include/ \
 		      -I${pub_dir}
 
-AM_LDFLAGS = -lz -lrt -rdynamic
+AM_LDFLAGS = -lz -lrt -lm -lpthread -rdynamic
 
 LDADD = $(top_builddir)/src/rpc/librpc.a \
         $(top_builddir)/src/common/libcommon.a \

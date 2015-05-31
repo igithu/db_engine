@@ -38,7 +38,7 @@ fi
 make distclean && ./bootstrap.sh clean
 ./bootstrap.sh
 
-# check the configure file 
+# check the configure file
 if [ ! -f $BUILD_ROOT/configure ]
 then
     echo "the configure does not exist!"
@@ -46,7 +46,7 @@ then
 fi
 
 # make the project
-./configure && make
+./configure --disable-dependency-tracking && make
 if [ $? -ne 0 ]
 then
     echo "make the project failed!"

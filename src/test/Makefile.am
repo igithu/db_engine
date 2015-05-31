@@ -1,10 +1,11 @@
+AUTOMAKE_OPTIONS = foreign subdir-objects
 
 #SUBDIRS=src
 #DIST_SUBDIRS=src
 
 top_dir=${top_srcdir}/..
 test_rootdir = ${top_srcdir}/src/test
-third_dir=${top_dir}/third-64
+third_dir=${top_dir}/third-32
 pub_dir=${top_dir}/pub_util
 
 AM_CPPFLAGS=-I${top_srcdir}/src \

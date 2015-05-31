@@ -1,5 +1,7 @@
+AUTOMAKE_OPTIONS = foreign subdir-objects
+
 top_dir = ${top_srcdir}/..
-third_dir = ${top_dir}/third-64
+third_dir = ${top_dir}/third-32
 db_rootdir = ${top_srcdir}/src/engine_db
 pub_dir = ${top_dir}/pub_util
 

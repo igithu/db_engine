@@ -121,7 +121,7 @@ double ConfigManager::IniGetDouble(const string& sec_key) {
 }
 
 const char *ConfigManager::IniGetString(const string& sec_key) {
-    char *ret = iniparser_getstring(dict_ini_, sec_key.c_str(), NOT_EXIST_STR);
+    const char *ret = iniparser_getstring(dict_ini_, sec_key.c_str(), "ne"/*NOT_EXIST_STR*/);
 
     if (NOT_EXIST_STR == ret) {
         DB_LOG(WARNING, "get the string sec_key : %s failed!" , sec_key.c_str());

@@ -3,21 +3,22 @@
  * Copyright (c) 2014 aishuyu, Inc. All Rights Reserved
  * 
  **************************************************************************/
- 
- 
- 
+
+
+
 /**
  * @file tools.cpp
  * @author aishuyu(asy5178@163.com)
  * @date 2014/12/29 14:11:09
  * @brief 
- *  
+ *
  **/
 
 
 #include "tools.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/algorithm/string/detail/classification.hpp>

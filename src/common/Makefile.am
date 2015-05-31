@@ -1,6 +1,8 @@
+AUTOMAKE_OPTIONS = foreign subdir-objects
+
 top_dir = ${top_srcdir}/..
 common_rootdir = ${top_srcdir}/src/common
-third_dir = ${top_dir}/third-64
+third_dir = ${top_dir}/third-32
 pub_dir = ${top_dir}/pub_util
 
 AM_CPPFLAGS = -I${third_dir}/glog/include/ \
@@ -8,12 +10,12 @@ AM_CPPFLAGS = -I${third_dir}/glog/include/ \
 			  -I${third_dir}/boost/include/ \
 			  -I${pub_dir}
 
-AM_LDFLAGS = -lz -lrt -rdynamic
+AM_LDFLAGS = -lz -lrt -lm -lpthread -rdynamic
 
 LDADD = $(top_builddir)/src/proto/libproto.a \
         ${third_dir}/glog/lib/libglog.a \
 	    ${third_dir}/iniparser/lib/*.a \
-	    ${third_dir}/boost/lib/*.a 
+	    ${third_dir}/boost/lib/*.a
 
 AM_CXXFLAGS = -Werror
 

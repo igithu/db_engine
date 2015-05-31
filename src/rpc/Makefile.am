@@ -1,6 +1,8 @@
+AUTOMAKE_OPTIONS = foreign subdir-objects
+
 top_dir = ${top_srcdir}/..
 rpc_rootdir = ${top_srcdir}/src/rpc
-third_dir = ${top_dir}/third-64
+third_dir = ${top_dir}/third-32
 pub_dir = ${top_dir}/pub_util
 
 AM_CPPFLAGS = -I$(top_srcdir)/src \
@@ -11,7 +13,7 @@ AM_CPPFLAGS = -I$(top_srcdir)/src \
 			  -I${pub_dir} 
 			
 
-AM_LDFLAGS=-lz -lrt
+AM_LDFLAGS = -lz -lrt -lm -lpthread -rdynamic
 
 LDADD = ${third_dir}/protobuf/lib/*.a \
 	    ${third_dir}/libev/lib/*.a \
