@@ -18,7 +18,7 @@
 
 #include <cstddef>
 
-namespace db_engine {
+namespace libevrpc {
 
 uint32_t BKDRHash(const char *orig_str) {
 
@@ -32,7 +32,7 @@ uint32_t BKDRHash(const char *orig_str) {
     return (hash_code & 0x7FFFFFFF);
 }
 
-}  // end of namespace db_engine
+}  // end of namespace libevrpc
 
 
 

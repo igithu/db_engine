@@ -21,13 +21,14 @@
 #define  __ENGINE_CLIENT_H_
 
 #include "proto/db_engine.pb.h"
-#include "rpc/rpc_channel.h"
+// #include "rpc/rpc_channel.h"
+#include "rpc/rpc_client/rpc_client.h"
 
 namespace db_engine {
 
 using namespace google::protobuf;
 
-class EngineClient {
+class EngineClient : public libevrpc::RpcClient {
     public:
         EngineClient();
 
@@ -44,8 +45,6 @@ class EngineClient {
         bool ClientInit();
 
     private:
-        Channel* rpc_channel_ptr_;
-
         EngineService::Stub* serveice_stub_ptr_;
 
         //ConfigManager& config_manager_;

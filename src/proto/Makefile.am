@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = foreign subdir-objects
 
 top_dir = ${top_srcdir}/..
 pb_rootdir = ${top_srcdir}/src/proto
-third_dir = ${top_dir}/third-32
+third_dir = ${top_dir}/third-64
 
 AM_CPPFLAGS = -I${third_dir}/protobuf/include/
 

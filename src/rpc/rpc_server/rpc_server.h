@@ -3,9 +3,9 @@
  * Copyright (c) 2014 Aishuyu. All Rights Reserved
  * 
  **************************************************************************/
- 
- 
- 
+
+
+
 /**
  * @file rpc_server.h
  * @author aishuyu(asy5178@163.com)
@@ -24,23 +24,27 @@
 
 #include <google/protobuf/service.h>
 
-#include "disallow_copy_and_assign.h"
-#include "libev_connector.h"
-#include "rpc_msg.pb.h"
-#include "pthread_mutex.h"
-#include "io_thread.h"
-#include "thread_pool.h"
+#include "util/disallow_copy_and_assign.h"
+#include "util/pthread_mutex.h"
+#include "dispatch_thread.h"
+#include "libev_thread_pool.h"
 
 
-namespace db_engine {
+namespace libevrpc {
 
 using namespace PUBLIC_UTIL;
 using namespace google::protobuf;
 using __gnu_cxx::hash_map;
 
 struct RpcMethod {
-    RpcMethod(Service* p_service, const Message* p_req, const Message* p_rep, const MethodDescriptor* p_meth)
-        : service(p_service), request(p_req), response(p_rep), method(p_meth) {
+    RpcMethod(Service* p_service,
+              const Message* p_req,
+              const Message* p_rep,
+              const MethodDescriptor* p_meth)
+        : service(p_service),
+          request(p_req),
+          response(p_rep),
+          method(p_meth) {
     }
 
     Service* service;
@@ -60,25 +64,27 @@ class RpcServer {
 
         bool RegisteService(Service* reg_service);
 
-        bool Start(int32_t thread_num = 20, const char* addr = "", const char* port = "");
+        bool Start(const char* addr = "",
+                   const char* port = "",
+                   int32_t thread_num = 20,
+                   int32_t reader_num = 0,
+                   int32_t writer_num = 0);
 
         bool Wait();
 
-        bool RpcCall(int32_t event_fd);
-
-        LibevConnector* GetLibevConnector();
+        static void RpcCall(int32_t event_fd, void *arg);
 
         static void* RpcProcessor(void *arg);
+
+        static void* RpcReader(void *arg);
+
+        static void* RpcWriter(void *arg);
 
 
     private:
         RpcServer();
 
         bool Initialize();
-
-        bool GetMethodRequest(int32_t event_fd, RpcMessage& recv_rpc_msg);
-
-        bool SendFormatStringMsg(int32_t event_fd, Message* response);
 
         bool ErrorSendMsg(int32_t event_fd, const string& error_msg);
 
@@ -91,20 +97,35 @@ class RpcServer {
 
         HashMap method_hashmap_;
 
-        LibevConnector* libev_connector_ptr_;
-
-        IOThread* io_thread_ptr_;
-
-        ThreadPool* worker_threads_ptr_;
+        DispatchThread*  dispatcher_thread_ptr_;
+        LibevThreadPool* worker_threads_ptr_;
+        LibevThreadPool* reader_threads_ptr_;
+        LibevThreadPool* writer_threads_ptr_;
 
         struct CallBackParams {
+            CallBackParams() :
+                rpc_server_ptr(NULL),
+                response_ptr(NULL){
+            }
+
+            ~CallBackParams() {
+                if (NULL != response_ptr) {
+                    delete response_ptr;
+                }
+            }
+
             int32_t event_fd;
+            int32_t call_id;
+            // current rpc server ptr
             RpcServer* rpc_server_ptr;
+
+            std::string recv_info;
+            Message* response_ptr;
         };
 
 };
 
-}  // end of namespace db_engine
+}  // end of namespace libevrpc
 
 
 

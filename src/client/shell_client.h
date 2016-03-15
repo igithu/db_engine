@@ -1,17 +1,17 @@
 /***************************************************************************
- * 
+ *
  * Copyright (c) 2014 aishuyu, Inc. All Rights Reserved
- * 
+ *
  **************************************************************************/
- 
- 
- 
+
+
+
 /**
  * @file shell_client.h
  * @author aishuyu(asy5178@163.com)
  * @date 2014/12/24 15:04:55
- * @brief 
- *  
+ * @brief
+ *
  **/
 
 
@@ -24,7 +24,7 @@
 
 #include <string>
 #include <vector>
-#include <boost/unordered_map.hpp>
+#include <unordered_map>  // C++ 11
 
 #include "thread.h"
 #include "engine_client.h"
@@ -43,7 +43,7 @@ struct Params {
 class ShellClient;
 typedef bool (ShellClient::*DoCmd)(Params& params);
 // typedef boost::unordered_map<const char*, DoCmd> HashMap;
-typedef boost::unordered_map<string, DoCmd> HashMap;
+typedef std::unordered_map<string, DoCmd> HashMap;
 
 class ShellClient : public Thread {
     public:
@@ -57,13 +57,9 @@ class ShellClient : public Thread {
 
     private:
         bool ParseCmd(std::string& cmd_str, std::string& do_cmd_str, Params& params);
-        
         bool DoCmdSet(Params& params);
-
         bool DoCmdGet(Params& params);
-
         bool DoCmdDelete(Params& params);
-
         bool DoCmdQuit(Params& params);
 
     private:

@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = foreign subdir-objects
 
 top_dir = ${top_srcdir}/..
 server_rootdir = ${top_srcdir}/src/server
-third_dir = ${top_dir}/third-32
+third_dir = ${top_dir}/third-64
 pub_dir = ${top_dir}/pub_util
 
 AM_CPPFLAGS = -I${top_srcdir}/src \

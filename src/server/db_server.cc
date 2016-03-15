@@ -19,7 +19,7 @@
 #include <fcntl.h>
 
 #include "db_service.h"
-#include "rpc/rpc_server.h"
+#include "rpc/rpc_server/rpc_server.h"
 #include "common/tools.h"
 #include "common/common.h"
 

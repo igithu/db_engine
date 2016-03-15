@@ -13,11 +13,14 @@ AC_PROG_LIBTOOL
 
 AC_PROG_CXX
 AC_PROG_CC
-AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
 # Checks for libraries.
+# FIXME: Replace `main' with a function in `-lm':
+AC_CHECK_LIB([m], [main])
+# FIXME: Replace `main' with a function in `-lpthread':
+AC_CHECK_LIB([pthread], [main])
 # FIXME: Replace `main' with a function in `-lrt':
 AC_CHECK_LIB([rt], [main])
 # FIXME: Replace `main' with a function in `-lz':
@@ -38,13 +41,18 @@ AC_FUNC_FORK
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([bzero dup2 gethostname memset socket])
 
+CXXFLAGS=-std=c++11
+
 AC_CONFIG_FILES([Makefile
                  src/Makefile
                  src/client/Makefile
                  src/common/Makefile
                  src/engine_db/Makefile
                  src/proto/Makefile
+                 src/py_client/Makefile
                  src/rpc/Makefile
+                 src/rpc/rpc_client/Makefile
+                 src/rpc/rpc_server/Makefile
                  src/server/Makefile
                  src/test/Makefile])
 AC_OUTPUT

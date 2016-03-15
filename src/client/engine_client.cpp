@@ -1,17 +1,17 @@
 /***************************************************************************
- * 
+ *
  * Copyright (c) 2014 aishuyu, Inc. All Rights Reserved
- * 
+ *
  **************************************************************************/
- 
- 
- 
+
+
+
 /**
  * @file engine_client.cpp
  * @author aishuyu(asy5178@163.com)
  * @date 2014/12/10 17:24:45
- * @brief 
- *  
+ * @brief
+ *
  **/
 
 #include "engine_client.h"
@@ -20,9 +20,9 @@
 
 namespace db_engine {
 
+using namespace libevrpc;
 
-EngineClient::EngineClient():
-   rpc_channel_ptr_(NULL), serveice_stub_ptr_(NULL) {
+EngineClient::EngineClient() : serveice_stub_ptr_(NULL) {
     ClientInit();
 }
 
@@ -30,17 +30,12 @@ EngineClient::~EngineClient() {
     if (NULL != serveice_stub_ptr_) {
         delete serveice_stub_ptr_;
     }
-    
-    if (NULL != rpc_channel_ptr_) {
-        delete rpc_channel_ptr_; 
-    }
 }
 
 bool EngineClient::ClientInit() {
     const char* addr = DB_SYS_CONF.IniGetString("host:addr");
     const char* port = DB_SYS_CONF.IniGetString("host:port");
-    rpc_channel_ptr_ = new Channel(addr, port);
-    serveice_stub_ptr_ = new EngineService::Stub(rpc_channel_ptr_);
+    serveice_stub_ptr_ = new EngineService::Stub(GetRpcChannel());
 
     return true;
 }
@@ -83,7 +78,7 @@ bool EngineClient::Delete(const char* key) {
         DB_LOG(ERROR, "del failed! engine rpc server error");
         return false;
     }
- 
+
     return true;
 }
 

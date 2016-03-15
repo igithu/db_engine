@@ -22,11 +22,11 @@
 
 #include <stdint.h>
 
-namespace db_engine {
+namespace libevrpc {
 
 uint32_t BKDRHash(const char *orig_str);
 
-}  // end of namespace db_engine
+}  // end of namespace libevrpc
 
 
 
