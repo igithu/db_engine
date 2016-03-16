@@ -6,6 +6,7 @@ client_rootdir = ${top_srcdir}/src/rpc/rpc_client
 third_dir = ${top_dir}/third-64
 
 AM_CPPFLAGS = -I${top_srcdir}/src \
+			  -I${util_dir}/ \
 			  -I${third_dir}/gperftools/include/ \
 			  -I${third_dir}/protobuf/include/
 

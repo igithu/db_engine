@@ -12,7 +12,8 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 			  -I${third_dir}/iniparser/include/ \
 			  -I${pub_dir}
 
-AM_LDFLAGS = -lz -lrt -rdynamic
+#AM_LDFLAGS = -lz -lrt -rdynamic
+AM_LDFLAGS = -lz -lrt
 
 LDADD = $(top_builddir)/src/common/libcommon.a \
         ${third_dir}/leveldb/lib/*.a \

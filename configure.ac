@@ -8,8 +8,9 @@ AC_INIT([db_engine], [0.0.2], [asy5178@163.com])
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AM_INIT_AUTOMAKE
+AC_PROG_RANLIB
 #AC_PROG_RANLIB
-AC_PROG_LIBTOOL
+#AC_PROG_LIBTOOL
 
 AC_PROG_CXX
 AC_PROG_CC
@@ -49,7 +50,6 @@ AC_CONFIG_FILES([Makefile
                  src/common/Makefile
                  src/engine_db/Makefile
                  src/proto/Makefile
-                 src/py_client/Makefile
                  src/rpc/Makefile
                  src/rpc/rpc_client/Makefile
                  src/rpc/rpc_server/Makefile

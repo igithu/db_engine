@@ -6,7 +6,7 @@ third_dir = ${top_dir}/third-64
 
 AM_CPPFLAGS = -I${third_dir}/protobuf/include/
 
-AM_LDFLAGS = -lz -lrt -lm -lpthread -rdynamic
+AM_LDFLAGS = -lz -lrt -lm
 
 LDADD = ${third_dir}/protobuf/lib/*.a
 

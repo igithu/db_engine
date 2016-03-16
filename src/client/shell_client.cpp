@@ -23,6 +23,7 @@
 
 namespace db_engine {
 
+using namespace libevrpc;
 using std::string;
 using std::vector;
 
@@ -57,9 +58,7 @@ void ShellClient::Run() {
         //if (fgets(cmd_buf, CMD_MAX_LEN, stdin) == NULL) { 
         //    break;
         //}
-        
         std::cin.getline(cmd_buf, CMD_MAX_LEN);
-        
         string do_cmd_str;
         Params params;
         string cmd_buf_str = cmd_buf;
