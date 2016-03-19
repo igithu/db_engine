@@ -14,8 +14,7 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 			  -I${third_dir}/iniparser/include/ \
 			  -I${pub_dir}
 
-#AM_LDFLAGS = -lz -lrt -rdynamic -lm -lpthread
-AM_LDFLAGS = -lz -lm -lpthread
+AM_LDFLAGS = -lz -lm -lpthread -lstdc++
 
 LDADD = $(top_builddir)/src/proto/libproto.a \
 		$(top_builddir)/src/rpc/rpc_client/librpc_client.a \

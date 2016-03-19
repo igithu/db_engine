@@ -13,7 +13,7 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 			  -I${pub_dir}
 
 #AM_LDFLAGS = -lz -lrt -rdynamic
-AM_LDFLAGS = -lz -lrt
+AM_LDFLAGS = -lz -lm -lpthread -std=c++11 -lstdc++
 
 LDADD = $(top_builddir)/src/common/libcommon.a \
         ${third_dir}/leveldb/lib/*.a \

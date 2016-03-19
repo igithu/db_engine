@@ -9,8 +9,6 @@ AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 AM_INIT_AUTOMAKE
 AC_PROG_RANLIB
-#AC_PROG_RANLIB
-#AC_PROG_LIBTOOL
 
 AC_PROG_CXX
 AC_PROG_CC
@@ -29,6 +27,7 @@ AC_CHECK_LIB([z], [main])
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h stdint.h stdlib.h sys/socket.h unistd.h])
+#AX_CXX_COMPILE_STDCXX_11([noext], [mandatory])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_CHECK_HEADER_STDBOOL
@@ -38,7 +37,7 @@ AC_TYPE_SIZE_T
 AC_TYPE_UINT32_T
 
 # Checks for library functions.
-AC_FUNC_FORK
+# AC_FUNC_FORK
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([bzero dup2 gethostname memset socket])
 

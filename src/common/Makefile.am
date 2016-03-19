@@ -10,8 +10,7 @@ AM_CPPFLAGS = -I${third_dir}/glog/include/ \
 			  -I${third_dir}/boost/include/ \
 			  -I${pub_dir}
 
-#AM_LDFLAGS = -lz -lrt -lm -lpthread -rdynamic
-AM_LDFLAGS = -lz -lrt -lm -lpthread
+AM_LDFLAGS = -lz -lrt -lpthread
 
 LDADD = $(top_builddir)/src/proto/libproto.a \
         ${third_dir}/glog/lib/libglog.a \

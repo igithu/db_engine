@@ -10,8 +10,7 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 			  -I${third_dir}/gperftools/include/ \
 			  -I${third_dir}/protobuf/include/
 
-#AM_LDFLAGS = -lz -lrt
-AM_LDFLAGS = -lz -lstdc++
+AM_LDFLAGS = -lz -lrt
 
 LDADD = ${third_dir}/gperftools/lib/libtcmalloc_minimal.a \
 		${third_dir}/protobuf/lib/*.a

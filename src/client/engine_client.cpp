@@ -35,6 +35,7 @@ EngineClient::~EngineClient() {
 bool EngineClient::ClientInit() {
     const char* addr = DB_SYS_CONF.IniGetString("host:addr");
     const char* port = DB_SYS_CONF.IniGetString("host:port");
+    InitClient(addr, port);
     serveice_stub_ptr_ = new EngineService::Stub(GetRpcChannel());
 
     return true;

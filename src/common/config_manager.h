@@ -3,9 +3,9 @@
  * Copyright (c) 2015 aishuyu, Inc. All Rights Reserved
  * 
  **************************************************************************/
- 
- 
- 
+
+
+
 /**
  * @file config_manager.h
  * @author aishuyu(asy5178@163.com)
@@ -53,17 +53,11 @@ class ConfigManager {
 
         // the api to get data
         int32_t GetSecKeysNum(const std::string& sec_key);
-
         int32_t IniGetInt(const std::string& sec_key);
-
         double IniGetDouble(const std::string& sec_key);
-
         const char *IniGetString(const std::string& sec_key);
-
         bool IniGetBool(const std::string& sec_key);
-
         const char *IniGetLocalIPAddr();
-
         const char *IniGetLocalHostName();
 
     private:
@@ -77,11 +71,9 @@ class ConfigManager {
         dictionary* dict_ini_;
 
         char localhost_name_[MAX_HOST_LEN];
-
         char localip_addr_[MAX_HOST_LEN];
 
         static PUBLIC_UTIL::ATOMIC_BOOL is_init_;
-
         static PUBLIC_UTIL::Mutex instance_mutex_;
         //ConfigManager instance_ptr_;
 };

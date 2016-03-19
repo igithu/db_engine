@@ -1,17 +1,17 @@
 /***************************************************************************
- * 
+ *
  * Copyright (c) 2014 aishuyu, Inc. All Rights Reserved
- * 
+ *
  **************************************************************************/
- 
- 
- 
+
+
+
 /**
  * @file engine_client.h
  * @author aishuyu(asy5178@163.com)
  * @date 2014/12/10 17:06:05
- * @brief 
- *  
+ * @brief
+ *
  **/
 
 
@@ -36,9 +36,7 @@ class EngineClient : public libevrpc::RpcClient {
 
 
         bool Put(const char* key, const char* value);
-
         bool Get(const char* key, std::string& value);
-
         bool Delete(const char* key);
 
     public:

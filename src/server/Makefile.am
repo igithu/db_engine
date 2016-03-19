@@ -15,7 +15,7 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 		      -I${pub_dir}
 
 #AM_LDFLAGS = -lz -lrt -lm -lpthread -rdynamic
-AM_LDFLAGS = -lz -lrt -lm -lpthread
+AM_LDFLAGS = -lz -lrt -lm -lpthread -lstdc++
 
 LDADD = $(top_builddir)/src/rpc/rpc_server/librpc_server.a \
         $(top_builddir)/src/common/libcommon.a \

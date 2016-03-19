@@ -20,8 +20,6 @@
 #ifndef  __SHELL_CLIENT_H_
 #define  __SHELL_CLIENT_H_
 
-#include <ext/hash_map>
-
 #include <string>
 #include <vector>
 #include <unordered_map>  // C++ 11
@@ -32,9 +30,6 @@
 
 namespace db_engine {
 
-using namespace PUBLIC_UTIL;
-using __gnu_cxx::hash_map;
-
 struct Params {
     //bool is_success;
     std::vector<std::string> params_vec;
@@ -42,17 +37,14 @@ struct Params {
 
 class ShellClient;
 typedef bool (ShellClient::*DoCmd)(Params& params);
-// typedef boost::unordered_map<const char*, DoCmd> HashMap;
-typedef std::unordered_map<string, DoCmd> HashMap;
+typedef std::unordered_map<std::string, DoCmd> HashMap;
 
-class ShellClient : public Thread {
+class ShellClient : public PUBLIC_UTIL::Thread {
     public:
         ShellClient();
-
         ~ShellClient();
 
         bool InitCmd();
-
         virtual void Run();
 
     private:
@@ -66,7 +58,6 @@ class ShellClient : public Thread {
         HashMap do_cmd_map_;
 
         EngineClient engine_client_;
-
         bool running_;
 };
 
