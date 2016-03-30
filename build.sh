@@ -46,7 +46,7 @@ then
 fi
 
 # make the project
-./configure --disable-dependency-tracking && make
+./configure --disable-dependency-tracking && make -j2
 if [ $? -ne 0 ]
 then
     echo "make the project failed!"

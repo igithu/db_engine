@@ -1,12 +1,11 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.69])
+AC_PREREQ([2.60])
 AC_INIT([db_engine], [0.0.2], [asy5178@163.com])
 
 # Checks for programs.
 AC_PROG_INSTALL
-AC_PROG_MAKE_SET
 AM_INIT_AUTOMAKE
 AC_PROG_RANLIB
 
@@ -30,7 +29,7 @@ AC_CHECK_HEADERS([arpa/inet.h fcntl.h netdb.h netinet/in.h stdint.h stdlib.h sys
 #AX_CXX_COMPILE_STDCXX_11([noext], [mandatory])
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_CHECK_HEADER_STDBOOL
+# AC_CHECK_HEADER_STDBOOL
 AC_C_INLINE
 AC_TYPE_INT32_T
 AC_TYPE_SIZE_T

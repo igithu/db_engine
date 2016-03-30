@@ -16,9 +16,7 @@
 
 #include "dispatch_thread.h"
 
-#include <stdlib.h>
-
-#include "rpc/util/rpc_communication.h"
+#include "util/rpc_communication.h"
 
 namespace libevrpc {
 

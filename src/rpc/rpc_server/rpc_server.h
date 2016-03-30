@@ -24,8 +24,8 @@
 
 #include <google/protobuf/service.h>
 
-#include "rpc/util/disallow_copy_and_assign.h"
-#include "rpc/util/pthread_mutex.h"
+#include "util/disallow_copy_and_assign.h"
+#include "util/pthread_mutex.h"
 #include "dispatch_thread.h"
 #include "libev_thread_pool.h"
 

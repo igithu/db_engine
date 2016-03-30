@@ -3,9 +3,9 @@
  * Copyright (c) 2014 aishuyu, Inc. All Rights Reserved
  * 
  **************************************************************************/
- 
- 
- 
+
+
+
 /**
  * @file engine_server.cc
  * @author aishuyu(asy5178@163.com)
@@ -24,6 +24,7 @@
 #include "common/common.h"
 
 using namespace db_engine;
+using namespace libevrpc;
 
 inline void InitSignal() {
     struct sigaction sa;
@@ -85,7 +86,7 @@ int main(int argc, char* argv[]) {
     rpc_server.RegisteService(&service);
     DB_LOG(INFO, "Start the rpc sevice....");
 
-    rpc_server.Start(thread_num, addr, port);
+    rpc_server.Start(addr, port, thread_num);
     rpc_server.Wait();
 
     return 0;

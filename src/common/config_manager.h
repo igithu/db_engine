@@ -22,10 +22,10 @@
 
 #include <string>
 
+#include "pthread_mutex.h"
 #include "atomic.h"
 #include "iniparser.h"
 #include "disallow_copy_and_assign.h"
-#include "pthread_mutex.h"
 
 #define NOT_EXIST_INT -1
 #define INI_ERROR_INT -2
@@ -73,8 +73,8 @@ class ConfigManager {
         char localhost_name_[MAX_HOST_LEN];
         char localip_addr_[MAX_HOST_LEN];
 
-        static PUBLIC_UTIL::ATOMIC_BOOL is_init_;
         static PUBLIC_UTIL::Mutex instance_mutex_;
+        static PUBLIC_UTIL::ATOMIC_BOOL is_init_;
         //ConfigManager instance_ptr_;
 };
 

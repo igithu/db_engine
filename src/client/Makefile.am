@@ -7,7 +7,8 @@ third_dir = ${top_dir}/third-64
 pub_dir = ${top_dir}/pub_util
 
 
-AM_CPPFLAGS = -I${top_srcdir}/src \
+AM_CPPFLAGS = -I${proj_rootdir} \
+			  -I${proj_rootdir}/rpc/ \
 			  -I${third_dir}/protobuf/include/ \
 			  -I${third_dir}/boost/include/ \
 			  -I${third_dir}/glog/include/ \
@@ -16,8 +17,8 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 
 AM_LDFLAGS = -lz -lm -lpthread -lstdc++
 
-LDADD = $(top_builddir)/src/proto/libproto.a \
-		$(top_builddir)/src/rpc/rpc_client/librpc_client.a \
+LDADD = $(top_builddir)/src/rpc/rpc_client/librpc_client.a \
+		$(top_builddir)/src/proto/libproto.a \
 		$(top_builddir)/src/common/libcommon.a \
 		${third_dir}/protobuf/lib/*.a \
 		${third_dir}/boost/lib/*.a \

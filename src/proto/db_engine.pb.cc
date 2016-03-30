@@ -16,8 +16,6 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
-namespace db_engine {
-
 namespace {
 
 const ::google::protobuf::Descriptor* DBRequest_descriptor_ = NULL;
@@ -107,16 +105,14 @@ void protobuf_AddDesc_db_5fengine_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017db_engine.proto\022\tdb_engine\"1\n\tDBReques"
-    "t\022\020\n\006db_key\030\001 \001(\t:\000\022\022\n\010db_value\030\002 \001(\t:\000\""
-    "H\n\nDBResponse\022$\n\004code\030\001 \001(\0162\021.db_engine."
-    "DBCode:\003SUC\022\024\n\006db_res\030\002 \001(\t:\004NULL*\'\n\006DBC"
-    "ode\022\007\n\003SUC\020\000\022\007\n\003ERR\020\001\022\013\n\007NOFOUND\020\0032\256\001\n\rE"
-    "ngineService\0222\n\003Put\022\024.db_engine.DBReques"
-    "t\032\025.db_engine.DBResponse\0222\n\003Get\022\024.db_eng"
-    "ine.DBRequest\032\025.db_engine.DBResponse\0225\n\006"
-    "Delete\022\024.db_engine.DBRequest\032\025.db_engine"
-    ".DBResponseB\003\200\001\001", 376);
+    "\n\017db_engine.proto\"1\n\tDBRequest\022\020\n\006db_key"
+    "\030\001 \001(\t:\000\022\022\n\010db_value\030\002 \001(\t:\000\">\n\nDBRespon"
+    "se\022\032\n\004code\030\001 \001(\0162\007.DBCode:\003SUC\022\024\n\006db_res"
+    "\030\002 \001(\t:\004NULL*\'\n\006DBCode\022\007\n\003SUC\020\000\022\007\n\003ERR\020\001"
+    "\022\013\n\007NOFOUND\020\0032r\n\rEngineService\022\036\n\003Put\022\n."
+    "DBRequest\032\013.DBResponse\022\036\n\003Get\022\n.DBReques"
+    "t\032\013.DBResponse\022!\n\006Delete\022\n.DBRequest\032\013.D"
+    "BResponseB\003\200\001\001", 294);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "db_engine.proto", &protobuf_RegisterTypes);
   DBRequest::default_instance_ = new DBRequest();
@@ -160,7 +156,7 @@ const int DBRequest::kDbValueFieldNumber;
 DBRequest::DBRequest()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:db_engine.DBRequest)
+  // @@protoc_insertion_point(constructor:DBRequest)
 }
 
 void DBRequest::InitAsDefaultInstance() {
@@ -170,7 +166,7 @@ DBRequest::DBRequest(const DBRequest& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:db_engine.DBRequest)
+  // @@protoc_insertion_point(copy_constructor:DBRequest)
 }
 
 void DBRequest::SharedCtor() {
@@ -182,7 +178,7 @@ void DBRequest::SharedCtor() {
 }
 
 DBRequest::~DBRequest() {
-  // @@protoc_insertion_point(destructor:db_engine.DBRequest)
+  // @@protoc_insertion_point(destructor:DBRequest)
   SharedDtor();
 }
 
@@ -239,7 +235,7 @@ bool DBRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:db_engine.DBRequest)
+  // @@protoc_insertion_point(parse_start:DBRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -292,17 +288,17 @@ bool DBRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:db_engine.DBRequest)
+  // @@protoc_insertion_point(parse_success:DBRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:db_engine.DBRequest)
+  // @@protoc_insertion_point(parse_failure:DBRequest)
   return false;
 #undef DO_
 }
 
 void DBRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:db_engine.DBRequest)
+  // @@protoc_insertion_point(serialize_start:DBRequest)
   // optional string db_key = 1 [default = ""];
   if (has_db_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -327,12 +323,12 @@ void DBRequest::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:db_engine.DBRequest)
+  // @@protoc_insertion_point(serialize_end:DBRequest)
 }
 
 ::google::protobuf::uint8* DBRequest::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:db_engine.DBRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:DBRequest)
   // optional string db_key = 1 [default = ""];
   if (has_db_key()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -359,7 +355,7 @@ void DBRequest::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:db_engine.DBRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:DBRequest)
   return target;
 }
 
@@ -465,7 +461,7 @@ const int DBResponse::kDbResFieldNumber;
 DBResponse::DBResponse()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:db_engine.DBResponse)
+  // @@protoc_insertion_point(constructor:DBResponse)
 }
 
 void DBResponse::InitAsDefaultInstance() {
@@ -475,7 +471,7 @@ DBResponse::DBResponse(const DBResponse& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:db_engine.DBResponse)
+  // @@protoc_insertion_point(copy_constructor:DBResponse)
 }
 
 void DBResponse::SharedCtor() {
@@ -487,7 +483,7 @@ void DBResponse::SharedCtor() {
 }
 
 DBResponse::~DBResponse() {
-  // @@protoc_insertion_point(destructor:db_engine.DBResponse)
+  // @@protoc_insertion_point(destructor:DBResponse)
   SharedDtor();
 }
 
@@ -537,21 +533,21 @@ bool DBResponse::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:db_engine.DBResponse)
+  // @@protoc_insertion_point(parse_start:DBResponse)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .db_engine.DBCode code = 1 [default = SUC];
+      // optional .DBCode code = 1 [default = SUC];
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::db_engine::DBCode_IsValid(value)) {
-            set_code(static_cast< ::db_engine::DBCode >(value));
+          if (::DBCode_IsValid(value)) {
+            set_code(static_cast< ::DBCode >(value));
           } else {
             mutable_unknown_fields()->AddVarint(1, value);
           }
@@ -593,18 +589,18 @@ bool DBResponse::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:db_engine.DBResponse)
+  // @@protoc_insertion_point(parse_success:DBResponse)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:db_engine.DBResponse)
+  // @@protoc_insertion_point(parse_failure:DBResponse)
   return false;
 #undef DO_
 }
 
 void DBResponse::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:db_engine.DBResponse)
-  // optional .db_engine.DBCode code = 1 [default = SUC];
+  // @@protoc_insertion_point(serialize_start:DBResponse)
+  // optional .DBCode code = 1 [default = SUC];
   if (has_code()) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->code(), output);
@@ -624,13 +620,13 @@ void DBResponse::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:db_engine.DBResponse)
+  // @@protoc_insertion_point(serialize_end:DBResponse)
 }
 
 ::google::protobuf::uint8* DBResponse::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:db_engine.DBResponse)
-  // optional .db_engine.DBCode code = 1 [default = SUC];
+  // @@protoc_insertion_point(serialize_to_array_start:DBResponse)
+  // optional .DBCode code = 1 [default = SUC];
   if (has_code()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->code(), target);
@@ -651,7 +647,7 @@ void DBResponse::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:db_engine.DBResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:DBResponse)
   return target;
 }
 
@@ -659,7 +655,7 @@ int DBResponse::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional .db_engine.DBCode code = 1 [default = SUC];
+    // optional .DBCode code = 1 [default = SUC];
     if (has_code()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->code());
@@ -760,24 +756,24 @@ const ::google::protobuf::ServiceDescriptor* EngineService::GetDescriptor() {
 }
 
 void EngineService::Put(::google::protobuf::RpcController* controller,
-                         const ::db_engine::DBRequest*,
-                         ::db_engine::DBResponse*,
+                         const ::DBRequest*,
+                         ::DBResponse*,
                          ::google::protobuf::Closure* done) {
   controller->SetFailed("Method Put() not implemented.");
   done->Run();
 }
 
 void EngineService::Get(::google::protobuf::RpcController* controller,
-                         const ::db_engine::DBRequest*,
-                         ::db_engine::DBResponse*,
+                         const ::DBRequest*,
+                         ::DBResponse*,
                          ::google::protobuf::Closure* done) {
   controller->SetFailed("Method Get() not implemented.");
   done->Run();
 }
 
 void EngineService::Delete(::google::protobuf::RpcController* controller,
-                         const ::db_engine::DBRequest*,
-                         ::db_engine::DBResponse*,
+                         const ::DBRequest*,
+                         ::DBResponse*,
                          ::google::protobuf::Closure* done) {
   controller->SetFailed("Method Delete() not implemented.");
   done->Run();
@@ -792,20 +788,20 @@ void EngineService::CallMethod(const ::google::protobuf::MethodDescriptor* metho
   switch(method->index()) {
     case 0:
       Put(controller,
-             ::google::protobuf::down_cast<const ::db_engine::DBRequest*>(request),
-             ::google::protobuf::down_cast< ::db_engine::DBResponse*>(response),
+             ::google::protobuf::down_cast<const ::DBRequest*>(request),
+             ::google::protobuf::down_cast< ::DBResponse*>(response),
              done);
       break;
     case 1:
       Get(controller,
-             ::google::protobuf::down_cast<const ::db_engine::DBRequest*>(request),
-             ::google::protobuf::down_cast< ::db_engine::DBResponse*>(response),
+             ::google::protobuf::down_cast<const ::DBRequest*>(request),
+             ::google::protobuf::down_cast< ::DBResponse*>(response),
              done);
       break;
     case 2:
       Delete(controller,
-             ::google::protobuf::down_cast<const ::db_engine::DBRequest*>(request),
-             ::google::protobuf::down_cast< ::db_engine::DBResponse*>(response),
+             ::google::protobuf::down_cast<const ::DBRequest*>(request),
+             ::google::protobuf::down_cast< ::DBResponse*>(response),
              done);
       break;
     default:
@@ -819,11 +815,11 @@ const ::google::protobuf::Message& EngineService::GetRequestPrototype(
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
     case 0:
-      return ::db_engine::DBRequest::default_instance();
+      return ::DBRequest::default_instance();
     case 1:
-      return ::db_engine::DBRequest::default_instance();
+      return ::DBRequest::default_instance();
     case 2:
-      return ::db_engine::DBRequest::default_instance();
+      return ::DBRequest::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *reinterpret_cast< ::google::protobuf::Message*>(NULL);
@@ -835,11 +831,11 @@ const ::google::protobuf::Message& EngineService::GetResponsePrototype(
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
     case 0:
-      return ::db_engine::DBResponse::default_instance();
+      return ::DBResponse::default_instance();
     case 1:
-      return ::db_engine::DBResponse::default_instance();
+      return ::DBResponse::default_instance();
     case 2:
-      return ::db_engine::DBResponse::default_instance();
+      return ::DBResponse::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *reinterpret_cast< ::google::protobuf::Message*>(NULL);
@@ -858,29 +854,27 @@ EngineService_Stub::~EngineService_Stub() {
 }
 
 void EngineService_Stub::Put(::google::protobuf::RpcController* controller,
-                              const ::db_engine::DBRequest* request,
-                              ::db_engine::DBResponse* response,
+                              const ::DBRequest* request,
+                              ::DBResponse* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(0),
                        controller, request, response, done);
 }
 void EngineService_Stub::Get(::google::protobuf::RpcController* controller,
-                              const ::db_engine::DBRequest* request,
-                              ::db_engine::DBResponse* response,
+                              const ::DBRequest* request,
+                              ::DBResponse* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(1),
                        controller, request, response, done);
 }
 void EngineService_Stub::Delete(::google::protobuf::RpcController* controller,
-                              const ::db_engine::DBRequest* request,
-                              ::db_engine::DBResponse* response,
+                              const ::DBRequest* request,
+                              ::DBResponse* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(2),
                        controller, request, response, done);
 }
 
 // @@protoc_insertion_point(namespace_scope)
-
-}  // namespace db_engine
 
 // @@protoc_insertion_point(global_scope)

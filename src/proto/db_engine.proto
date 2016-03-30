@@ -1,6 +1,5 @@
-package db_engine;
-
-option cc_generic_services = true;    
+// package db_engine;
+option cc_generic_services = true;
 
 enum DBCode {
     SUC = 0;

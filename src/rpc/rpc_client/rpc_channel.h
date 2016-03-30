@@ -30,7 +30,7 @@
 #include <google/protobuf/service.h>
 #include <google/protobuf/message.h>
 
-#include "rpc/util/pthread_rwlock.h"
+#include "util/pthread_rwlock.h"
 
 namespace libevrpc {
 

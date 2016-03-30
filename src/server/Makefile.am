@@ -1,11 +1,13 @@
 AUTOMAKE_OPTIONS = foreign subdir-objects
 
 top_dir = ${top_srcdir}/..
+proj_dir = ${top_srcdir}/src
 server_rootdir = ${top_srcdir}/src/server
 third_dir = ${top_dir}/third-64
 pub_dir = ${top_dir}/pub_util
 
-AM_CPPFLAGS = -I${top_srcdir}/src \
+AM_CPPFLAGS = -I${proj_dir} \
+			  -I${proj_dir}/rpc/ \
 		      -I${third_dir}/protobuf/include/ \
 		      -I${third_dir}/boost/include/ \
 		      -I${third_dir}/glog/include/ \
@@ -17,10 +19,10 @@ AM_CPPFLAGS = -I${top_srcdir}/src \
 #AM_LDFLAGS = -lz -lrt -lm -lpthread -rdynamic
 AM_LDFLAGS = -lz -lrt -lm -lpthread -lstdc++
 
-LDADD = $(top_builddir)/src/rpc/rpc_server/librpc_server.a \
-        $(top_builddir)/src/common/libcommon.a \
-	    $(top_builddir)/src/engine_db/libdb.a \
-	    $(top_builddir)/src/proto/libproto.a \
+LDADD = ${proj_dir}/rpc/rpc_server/librpc_server.a \
+        ${proj_dir}/common/libcommon.a \
+	    ${proj_dir}/engine_db/libdb.a \
+	    ${proj_dir}/proto/libproto.a \
 	    ${third_dir}/libev/lib/*.a \
 	    ${third_dir}/protobuf/lib/*.a \
 	    ${third_dir}/boost/lib/*.a \

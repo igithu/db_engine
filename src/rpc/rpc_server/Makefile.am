@@ -5,7 +5,7 @@ server_rootdir = ${top_srcdir}/src/rpc/rpc_server
 util_dir = ${top_srcdir}/src/rpc/util
 third_dir = ${top_dir}/third-64
 
-AM_CPPFLAGS = -I${top_srcdir}/src \
+AM_CPPFLAGS = -I${top_srcdir}/src/rpc \
               -I${third_dir}/gperftools/include/ \
 			  -I${third_dir}/protobuf/include/ \
 			  -I${third_dir}/libev/include/

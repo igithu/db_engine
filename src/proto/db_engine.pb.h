@@ -28,8 +28,6 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 
-namespace db_engine {
-
 // Internal implementation detail -- do not call these.
 void  protobuf_AddDesc_db_5fengine_2eproto();
 void protobuf_AssignDesc_db_5fengine_2eproto();
@@ -137,7 +135,7 @@ class DBRequest : public ::google::protobuf::Message {
   inline ::std::string* release_db_value();
   inline void set_allocated_db_value(::std::string* db_value);
 
-  // @@protoc_insertion_point(class_scope:db_engine.DBRequest)
+  // @@protoc_insertion_point(class_scope:DBRequest)
  private:
   inline void set_has_db_key();
   inline void clear_has_db_key();
@@ -212,12 +210,12 @@ class DBResponse : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .db_engine.DBCode code = 1 [default = SUC];
+  // optional .DBCode code = 1 [default = SUC];
   inline bool has_code() const;
   inline void clear_code();
   static const int kCodeFieldNumber = 1;
-  inline ::db_engine::DBCode code() const;
-  inline void set_code(::db_engine::DBCode value);
+  inline ::DBCode code() const;
+  inline void set_code(::DBCode value);
 
   // optional string db_res = 2 [default = "NULL"];
   inline bool has_db_res() const;
@@ -231,7 +229,7 @@ class DBResponse : public ::google::protobuf::Message {
   inline ::std::string* release_db_res();
   inline void set_allocated_db_res(::std::string* db_res);
 
-  // @@protoc_insertion_point(class_scope:db_engine.DBResponse)
+  // @@protoc_insertion_point(class_scope:DBResponse)
  private:
   inline void set_has_code();
   inline void clear_has_code();
@@ -268,16 +266,16 @@ class EngineService : public ::google::protobuf::Service {
   static const ::google::protobuf::ServiceDescriptor* descriptor();
 
   virtual void Put(::google::protobuf::RpcController* controller,
-                       const ::db_engine::DBRequest* request,
-                       ::db_engine::DBResponse* response,
+                       const ::DBRequest* request,
+                       ::DBResponse* response,
                        ::google::protobuf::Closure* done);
   virtual void Get(::google::protobuf::RpcController* controller,
-                       const ::db_engine::DBRequest* request,
-                       ::db_engine::DBResponse* response,
+                       const ::DBRequest* request,
+                       ::DBResponse* response,
                        ::google::protobuf::Closure* done);
   virtual void Delete(::google::protobuf::RpcController* controller,
-                       const ::db_engine::DBRequest* request,
-                       ::db_engine::DBResponse* response,
+                       const ::DBRequest* request,
+                       ::DBResponse* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -309,16 +307,16 @@ class EngineService_Stub : public EngineService {
   // implements EngineService ------------------------------------------
 
   void Put(::google::protobuf::RpcController* controller,
-                       const ::db_engine::DBRequest* request,
-                       ::db_engine::DBResponse* response,
+                       const ::DBRequest* request,
+                       ::DBResponse* response,
                        ::google::protobuf::Closure* done);
   void Get(::google::protobuf::RpcController* controller,
-                       const ::db_engine::DBRequest* request,
-                       ::db_engine::DBResponse* response,
+                       const ::DBRequest* request,
+                       ::DBResponse* response,
                        ::google::protobuf::Closure* done);
   void Delete(::google::protobuf::RpcController* controller,
-                       const ::db_engine::DBRequest* request,
-                       ::db_engine::DBResponse* response,
+                       const ::DBRequest* request,
+                       ::DBResponse* response,
                        ::google::protobuf::Closure* done);
  private:
   ::google::protobuf::RpcChannel* channel_;
@@ -351,7 +349,7 @@ inline void DBRequest::clear_db_key() {
   clear_has_db_key();
 }
 inline const ::std::string& DBRequest::db_key() const {
-  // @@protoc_insertion_point(field_get:db_engine.DBRequest.db_key)
+  // @@protoc_insertion_point(field_get:DBRequest.db_key)
   return *db_key_;
 }
 inline void DBRequest::set_db_key(const ::std::string& value) {
@@ -360,7 +358,7 @@ inline void DBRequest::set_db_key(const ::std::string& value) {
     db_key_ = new ::std::string;
   }
   db_key_->assign(value);
-  // @@protoc_insertion_point(field_set:db_engine.DBRequest.db_key)
+  // @@protoc_insertion_point(field_set:DBRequest.db_key)
 }
 inline void DBRequest::set_db_key(const char* value) {
   set_has_db_key();
@@ -368,7 +366,7 @@ inline void DBRequest::set_db_key(const char* value) {
     db_key_ = new ::std::string;
   }
   db_key_->assign(value);
-  // @@protoc_insertion_point(field_set_char:db_engine.DBRequest.db_key)
+  // @@protoc_insertion_point(field_set_char:DBRequest.db_key)
 }
 inline void DBRequest::set_db_key(const char* value, size_t size) {
   set_has_db_key();
@@ -376,14 +374,14 @@ inline void DBRequest::set_db_key(const char* value, size_t size) {
     db_key_ = new ::std::string;
   }
   db_key_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:db_engine.DBRequest.db_key)
+  // @@protoc_insertion_point(field_set_pointer:DBRequest.db_key)
 }
 inline ::std::string* DBRequest::mutable_db_key() {
   set_has_db_key();
   if (db_key_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     db_key_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:db_engine.DBRequest.db_key)
+  // @@protoc_insertion_point(field_mutable:DBRequest.db_key)
   return db_key_;
 }
 inline ::std::string* DBRequest::release_db_key() {
@@ -407,7 +405,7 @@ inline void DBRequest::set_allocated_db_key(::std::string* db_key) {
     clear_has_db_key();
     db_key_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:db_engine.DBRequest.db_key)
+  // @@protoc_insertion_point(field_set_allocated:DBRequest.db_key)
 }
 
 // optional string db_value = 2 [default = ""];
@@ -427,7 +425,7 @@ inline void DBRequest::clear_db_value() {
   clear_has_db_value();
 }
 inline const ::std::string& DBRequest::db_value() const {
-  // @@protoc_insertion_point(field_get:db_engine.DBRequest.db_value)
+  // @@protoc_insertion_point(field_get:DBRequest.db_value)
   return *db_value_;
 }
 inline void DBRequest::set_db_value(const ::std::string& value) {
@@ -436,7 +434,7 @@ inline void DBRequest::set_db_value(const ::std::string& value) {
     db_value_ = new ::std::string;
   }
   db_value_->assign(value);
-  // @@protoc_insertion_point(field_set:db_engine.DBRequest.db_value)
+  // @@protoc_insertion_point(field_set:DBRequest.db_value)
 }
 inline void DBRequest::set_db_value(const char* value) {
   set_has_db_value();
@@ -444,7 +442,7 @@ inline void DBRequest::set_db_value(const char* value) {
     db_value_ = new ::std::string;
   }
   db_value_->assign(value);
-  // @@protoc_insertion_point(field_set_char:db_engine.DBRequest.db_value)
+  // @@protoc_insertion_point(field_set_char:DBRequest.db_value)
 }
 inline void DBRequest::set_db_value(const char* value, size_t size) {
   set_has_db_value();
@@ -452,14 +450,14 @@ inline void DBRequest::set_db_value(const char* value, size_t size) {
     db_value_ = new ::std::string;
   }
   db_value_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:db_engine.DBRequest.db_value)
+  // @@protoc_insertion_point(field_set_pointer:DBRequest.db_value)
 }
 inline ::std::string* DBRequest::mutable_db_value() {
   set_has_db_value();
   if (db_value_ == &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
     db_value_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:db_engine.DBRequest.db_value)
+  // @@protoc_insertion_point(field_mutable:DBRequest.db_value)
   return db_value_;
 }
 inline ::std::string* DBRequest::release_db_value() {
@@ -483,14 +481,14 @@ inline void DBRequest::set_allocated_db_value(::std::string* db_value) {
     clear_has_db_value();
     db_value_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:db_engine.DBRequest.db_value)
+  // @@protoc_insertion_point(field_set_allocated:DBRequest.db_value)
 }
 
 // -------------------------------------------------------------------
 
 // DBResponse
 
-// optional .db_engine.DBCode code = 1 [default = SUC];
+// optional .DBCode code = 1 [default = SUC];
 inline bool DBResponse::has_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -504,15 +502,15 @@ inline void DBResponse::clear_code() {
   code_ = 0;
   clear_has_code();
 }
-inline ::db_engine::DBCode DBResponse::code() const {
-  // @@protoc_insertion_point(field_get:db_engine.DBResponse.code)
-  return static_cast< ::db_engine::DBCode >(code_);
+inline ::DBCode DBResponse::code() const {
+  // @@protoc_insertion_point(field_get:DBResponse.code)
+  return static_cast< ::DBCode >(code_);
 }
-inline void DBResponse::set_code(::db_engine::DBCode value) {
-  assert(::db_engine::DBCode_IsValid(value));
+inline void DBResponse::set_code(::DBCode value) {
+  assert(::DBCode_IsValid(value));
   set_has_code();
   code_ = value;
-  // @@protoc_insertion_point(field_set:db_engine.DBResponse.code)
+  // @@protoc_insertion_point(field_set:DBResponse.code)
 }
 
 // optional string db_res = 2 [default = "NULL"];
@@ -532,7 +530,7 @@ inline void DBResponse::clear_db_res() {
   clear_has_db_res();
 }
 inline const ::std::string& DBResponse::db_res() const {
-  // @@protoc_insertion_point(field_get:db_engine.DBResponse.db_res)
+  // @@protoc_insertion_point(field_get:DBResponse.db_res)
   return *db_res_;
 }
 inline void DBResponse::set_db_res(const ::std::string& value) {
@@ -541,7 +539,7 @@ inline void DBResponse::set_db_res(const ::std::string& value) {
     db_res_ = new ::std::string;
   }
   db_res_->assign(value);
-  // @@protoc_insertion_point(field_set:db_engine.DBResponse.db_res)
+  // @@protoc_insertion_point(field_set:DBResponse.db_res)
 }
 inline void DBResponse::set_db_res(const char* value) {
   set_has_db_res();
@@ -549,7 +547,7 @@ inline void DBResponse::set_db_res(const char* value) {
     db_res_ = new ::std::string;
   }
   db_res_->assign(value);
-  // @@protoc_insertion_point(field_set_char:db_engine.DBResponse.db_res)
+  // @@protoc_insertion_point(field_set_char:DBResponse.db_res)
 }
 inline void DBResponse::set_db_res(const char* value, size_t size) {
   set_has_db_res();
@@ -557,14 +555,14 @@ inline void DBResponse::set_db_res(const char* value, size_t size) {
     db_res_ = new ::std::string;
   }
   db_res_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:db_engine.DBResponse.db_res)
+  // @@protoc_insertion_point(field_set_pointer:DBResponse.db_res)
 }
 inline ::std::string* DBResponse::mutable_db_res() {
   set_has_db_res();
   if (db_res_ == _default_db_res_) {
     db_res_ = new ::std::string(*_default_db_res_);
   }
-  // @@protoc_insertion_point(field_mutable:db_engine.DBResponse.db_res)
+  // @@protoc_insertion_point(field_mutable:DBResponse.db_res)
   return db_res_;
 }
 inline ::std::string* DBResponse::release_db_res() {
@@ -588,22 +586,20 @@ inline void DBResponse::set_allocated_db_res(::std::string* db_res) {
     clear_has_db_res();
     db_res_ = const_cast< ::std::string*>(_default_db_res_);
   }
-  // @@protoc_insertion_point(field_set_allocated:db_engine.DBResponse.db_res)
+  // @@protoc_insertion_point(field_set_allocated:DBResponse.db_res)
 }
 
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace db_engine
-
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::db_engine::DBCode> : ::google::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::DBCode> : ::google::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::db_engine::DBCode>() {
-  return ::db_engine::DBCode_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::DBCode>() {
+  return ::DBCode_descriptor();
 }
 
 }  // namespace google

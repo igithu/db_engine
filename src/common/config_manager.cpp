@@ -28,7 +28,6 @@
 namespace db_engine {
 
 using std::string;
-using namespace PUBLIC_UTIL;
 
 PUBLIC_UTIL::Mutex ConfigManager::instance_mutex_;
 PUBLIC_UTIL::ATOMIC_BOOL ConfigManager::is_init_(false);
@@ -47,7 +46,7 @@ ConfigManager::~ConfigManager() {
 
 ConfigManager& ConfigManager::GetInstance() {
     if (false == is_init_) {
-        MutexLockGuard lock(instance_mutex_);
+        PUBLIC_UTIL::MutexLockGuard lock(instance_mutex_);
         static ConfigManager instance;
         return instance;
     }
